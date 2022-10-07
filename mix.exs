@@ -41,7 +41,8 @@ defmodule NalkaOnPitkaApi.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:crawly, "~> 0.14.0"},
       {:floki, "~> 0.33.0"},
-      {:timex, "~> 3.7"}
+      {:timex, "~> 3.7"},
+      {:corsica, "~> 1.2"}
     ]
   end
 
