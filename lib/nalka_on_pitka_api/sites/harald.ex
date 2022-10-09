@@ -1,13 +1,8 @@
  defmodule NalkaOnPitkaApi.Sites.Harald do
-   use Crawly.Spider
+   use NalkaOnPitkaApi.Sites
 
    @impl true
    def base_url(), do: "https://www.ravintolaharald.fi/jyvaskyla/lounas/"
-
-   @impl true
-   def init() do
-     [start_urls: ["https://www.ravintolaharald.fi/jyvaskyla/lounas/"]]
-   end
 
    @impl true
    def parse_item(response) do
@@ -35,13 +30,5 @@
        |> NalkaOnPitkaApi.Util.to_lunch_map()
 
      %Crawly.ParsedItem{items: [lunches], requests: []}
-   end
-
-   def get() do
-     base_url()
-     |> Crawly.fetch()
-     |> Crawly.parse(NalkaOnPitkaApi.Sites.Harald)
-     |> Map.get(:items, [])
-     |> List.first()
    end
  end
